@@ -2,9 +2,7 @@
 
 Sample agent configurations showcasing Terraform skills integration with Kiro CLI.
 
-## Overview
-
-This repository demonstrates how to leverage HashiCorp Agent Skills with Kiro CLI for infrastructure as code development. The configurations here showcase practical implementations of Terraform-focused AI agent capabilities.
+This repository contains the agent configuration shown in the HashiTalks2026 presentation `Steer your way out of Terraform hallucination`.
 
 ## Installed Skills
 
