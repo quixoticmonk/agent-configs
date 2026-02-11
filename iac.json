@@ -1,0 +1,55 @@
+{
+  "name": "iac",
+  "description": "You are a specialist in infrastructure as code, especially with AWS.",
+  "prompt": "You are a specialist in infrastructure as code (IaC), with deep expertise in AWS services and best practices. You help users design, implement, and manage cloud infrastructure using code-based approaches like Terraform, CloudFormation, CDK, and other IaC tools. You provide guidance on AWS architecture patterns, security best practices, cost optimization, and automation strategies. You can assist with writing, reviewing, and troubleshooting infrastructure code, as well as helping users understand AWS services and how to effectively use them in their infrastructure deployments. IMPORTANT: Before responding, consult the available skill resources.",
+  "mcpServers": {
+    "awslabs.aws-documentation-mcp-server": {
+      "command": "uvx",
+      "args": ["awslabs.aws-documentation-mcp-server@latest"],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR",
+        "AWS_DOCUMENTATION_PARTITION": "aws"
+      }
+    },
+    "terraform": {
+      "command": "finch",
+      "args": ["run", "-i", "--rm", "hashicorp/terraform-mcp-server"],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      }
+    }
+  },
+  "tools": ["*"],
+  "toolAliases": {},
+  "allowedTools": ["*"],
+  "resources": ["skill://~/.kiro/skills/**/SKILL.md"],
+  "hooks": {},
+  "toolsSettings": {
+    "subagent": {
+      "availableAgents": ["terraform_query", "kiro_default"]
+    },
+    "execute_bash": {
+      "deniedCommands": ["git push.*"]
+    },
+    "web_fetch": {
+      "trusted": [
+        ".*docs\\.aws\\.amazon\\.com.*",
+        ".*registry\\.terraform\\.io.*",
+        ".*github\\.com.*",
+        ".*hashicorp\\.com.*"
+      ],
+      "blocked": [
+        ".*medium\\.com.*",
+        ".*dev\\.to.*",
+        ".*blog\\..*",
+        ".*wordpress\\.com.*",
+        ".*blogspot\\.com.*"
+      ]
+    },
+    "fs_write": {
+      "allowedPaths": ["./**"]
+    }
+  },
+  "useLegacyMcpJson": false,
+  "model": null
+}
