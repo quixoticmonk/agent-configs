@@ -1,0 +1,21 @@
+{
+  "chat.disableAutoCompaction": false,
+  "compaction.excludeMessages": 2,
+  "compaction.excludeContextWindowPercent": 2,
+  "knowledge.maxFiles": 1000,
+  "knowledge.chunkSize": 512,
+  "knowledge.defaultExcludePatterns": [
+    "*.log",
+    "node_modules",
+    ".git",
+    "*.pyc",
+    "dist",
+    "build"
+  ],
+  "chat.enableContextUsageIndicator": true,
+  "chat.enableTodoList": true,
+  "chat.defaultModel": "claude-4-sonnet",
+  "chat.tangentModeKey": "t",
+  "mcp.loadedBefore": true,
+  "introspect.tangentMode": true
+}
